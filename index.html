@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tinhtien</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<p>MENU:<br>1.Trà Chanh:10000 VND.<br>2.Nâu Đá:20000 VND.<br>3.Đen Đá:20000 VND.<br>4.Nước Cam: 30000 VND.</p>
+<p>Tên Đồ Uống: <input type="text" ng-model="name"></p>
+<p>Giá: <input type="text" ng-model="money"></p>
+<p>Size: <input type="number" ng-model="size"></p>
+<p>Số Lượng: <input type="number" ng-model="sl"></p>
+<input type="button" value="Tính" ng-click="Calc()"/><br>
+<h2>Tên: {{name}}</h2>
+<h2>Tổng: {{total | currency:'VND: '}}</h2>
+<script>
+    var app=angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope){
+        $scope.name='';
+        $scope.size='';
+        $scope.money=0;
+        $scope.sl='';
+        $scope.total=0;
+        $scope.Calc=function (){
+           if ($scope.size=1){
+               $scope.total=($scope.money+15000)*$scope.sl
+           }else if($scope.size=2){
+               $scope.total=$scope.money*$scope.sl
+           }
+           $scope.total=$scope.money*$scope.sl
+        }
+    });
+</script>
+</body>
+</html>
